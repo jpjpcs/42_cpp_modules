@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 14:00:11 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/09/17 16:19:36 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/09/17 16:43:22 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,19 +258,23 @@ Account::~Account(void)
 }
 
 // Funções estáticas
-int Account::getNbAccounts(void) {
+int Account::getNbAccounts(void) 
+{
     return _nbAccounts;
 }
 
-int Account::getTotalAmount(void) {
+int Account::getTotalAmount(void) 
+{
     return _totalAmount;
 }
 
-int Account::getNbDeposits(void) {
+int Account::getNbDeposits(void) 
+{
     return _totalNbDeposits;
 }
 
-int Account::getNbWithdrawals(void) {
+int Account::getNbWithdrawals(void) 
+{
     return _totalNbWithdrawals;
 }
 
@@ -283,7 +287,8 @@ int Account::getNbWithdrawals(void) {
 //    std::cout << "withdrawals:" << _totalNbWithdrawals 
 // << std::endl;
 //}
-void Account::displayAccountsInfos(void) {
+void Account::displayAccountsInfos(void) 
+{
     _displayTimestamp();
     std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:" << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
