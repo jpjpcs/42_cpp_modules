@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 14:00:11 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/09/17 16:43:22 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/15 16:35:59 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,9 +178,76 @@ Ao compilar este código em conjunto com tests.cpp,
 ele irá gerar a mesma saída dos logs fornecidos 
 (com diferentes timestamps como é óbvio), 
 o que indica que a implementação está correta.
-
 */
 
+/*
+4. This->Pointer
+CPP00Ex02 – constructor parametrizado novamente, stdiostreams (stdin), get line vs std::cin, this->pointer
+Mais info no ponto 4 do ficheiro Account.cpp CPP00ex02.
+
+    4.1. - Colocar this->accountIndex = _nbAccounts++ OU accountIndex = _nbAccounts++?
+        R: O uso de this->accountIndex = _nbAccounts++ é preferível, pois torna explícito que estamos a referir um membro da classe.
+        O uso de accountIndex = _nbAccounts++ é menos claro e pode levar a erros se houver uma variável local com o mesmo nome.
+    4.2. - Qual a diferença entre meter _hitPoints e this->_hitPoints?
+        O this->_hitPoints indica que estamos a referir a
+        um membro da classe, enquanto o _hitPoints indica que estamos a referir a um argumento do construtor.
+        No CPP03ex01 usamos _hitPoints = 100;  
+    4.3. - E quando devemos this->pointer ou usar a referência direta?
+        R: O uso de this->pointer é necessário quando há ambiguidade entre um argumento de função e um membro da classe com o mesmo nome.
+    4.4. - Explicação detalhada:
+    A diferença entre usar _hitPoints e this->_hitPoints é crucial para entender como você está acessando os membros da classe e os 
+    parâmetros do construtor. Vamos esclarecer isso e discutir quando é apropriado usar cada um.
+        4.4.1. - Uso de this->_hitPoints
+        Quando você usa this->_hitPoints, está referindo-se explicitamente a um membro da classe. O this é um ponteiro que aponta 
+        para a instância atual da classe. Usar this->_hitPoints é útil em situações como:
+            . Ambiguidade: Se você tem um parâmetro do construtor ou um método com o mesmo nome que um membro da classe, 
+            o compilador precisa de uma forma de distinguir entre os dois. 
+            Por exemplo:
+            class Example 
+            {
+                private:
+                    int _hitPoints;
+
+                public:
+                    Example(int _hitPoints)  // O parâmetro e o membro têm o mesmo nome
+                    { 
+                        this->_hitPoints = _hitPoints; // Referenciando o membro da classe
+                    }
+            };
+            . Clareza: Mesmo quando não há ambiguidade, alguns programadores preferem usar this-> para deixar claro que 
+            estão acessando um membro da classe, o que pode melhorar a legibilidade.
+
+        4.4.2. - Uso de _hitPoints
+            Quando você simplesmente usa _hitPoints, o compilador assume que você está se referindo ao membro da classe, 
+            a menos que haja um parâmetro ou variável local com o mesmo nome. Portanto, você pode usar _hitPoints 
+            diretamente se não houver ambiguidade. 
+            Por exemplo:
+            class Example 
+            {
+                private:
+                    int _hitPoints;
+
+                public:
+                    Example(int hitPoints)  // O parâmetro não tem o mesmo nome que o membro
+                    {
+                        _hitPoints = hitPoints; // Referenciando o membro da classe
+                    }
+            };
+    4.5. - Resumindo: Quando usar cada um?
+        Use this->_hitPoints quando:
+
+        Há um parâmetro, variável local, ou método com o mesmo nome que o membro da classe (para evitar ambiguidade).
+        Você deseja tornar explícito que está acessando um membro da classe, mesmo que não haja ambiguidade.
+        Use _hitPoints quando:
+
+        Não há ambiguidade entre o nome do membro e o nome do parâmetro ou variável local.
+        Você prefere um código mais conciso.
+        Resumo
+        Usar this->_hitPoints ajuda a evitar ambiguidade e pode melhorar a legibilidade em alguns casos.
+        Usar _hitPoints é mais conciso e perfeitamente válido quando não há confusão sobre a que você está se referindo.
+        Ambos os estilos são aceitáveis, e a escolha muitas vezes se resume a preferências pessoais 
+        ou às diretrizes de estilo de código da sua equipe.
+*/
 
 #include "Account.hpp"
 #include <iostream>
@@ -350,7 +417,8 @@ bool Account::makeWithdrawal(int withdrawal)
 {
     _displayTimestamp();
     int p_amount = _amount;
-    if (withdrawal > _amount) {
+    if (withdrawal > _amount) 
+    {
         std::cout << "index:" << _accountIndex << ";p_amount:" << p_amount << ";withdrawal:refused" << std::endl;
         return false;
     }

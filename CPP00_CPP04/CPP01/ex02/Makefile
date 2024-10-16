@@ -5,61 +5,52 @@
 #                                                     +:+ +:+         +:+      #
 #    By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/06 14:35:08 by joaosilva         #+#    #+#              #
-#    Updated: 2024/09/18 10:54:12 by joaosilva        ###   ########.fr        #
+#    Created: 2024/09/09 00:21:11 by joaosilva         #+#    #+#              #
+#    Updated: 2024/09/20 00:29:28 by joaosilva        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #######################  Variables ######################
-NAME = account
-RM = rm -f
+NAME = brain
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -pedantic -std=c++98 # Compilation flags to enforce C++98 standard and strict error checking
-# pedantic flag is used to make sure the code is written in a standard way
-#INCLUDE = -I includes
+RM = rm -f
+CFLAGS = -Wall -Wextra -Werror -pedantic -std=c++98  # Flags de compilação
 
 ############  Source files - Sources to objects ###########
-# Source files
-SRC_FILES = Account.cpp tests.cpp
+SRC_FILES = main.cpp
 SRC_DIR = .
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 ########### Object files ###########
-# Object files and directory
 OBJ_DIR = obj/
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
-############ Header files ###########
-#HEADER_FILES = PhoneBook.hpp Contact.hpp
-#HEADER_DIR = includes/
-#HEADER = $(addprefix $(HEADER_DIR), $(HEADER_FILES))
-
 #######################   Rules ######################
-all: $(NAME) # Rule to build the executable
+all: $(NAME)  # Regra para compilar o executável
 
-$(NAME): $(OBJS) # Rule to link object files and generate the executable
+$(NAME): $(OBJS)  # Regra para ligar os ficheiros objeto e criar o executável
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
-	@echo "$(GREEN)Executable $(NAME) created$(DEF_COLOR)"
+	@echo "$(GREEN)Executável $(NAME) criado$(DEF_COLOR)"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)/%.cpp # Rule to compile object files from source files
+$(OBJ_DIR)%.o: $(SRC_DIR)/%.cpp  # Regra para compilar ficheiros objeto a partir do código-fonte
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(GRAY)Object file $@ created$(DEF_COLOR)"
+	@echo "$(GRAY)Ficheiro objeto $@ criado$(DEF_COLOR)"
 
-clean: # Rule to remove object files
+clean:  # Regra para remover os ficheiros objeto
 	@$(RM) $(OBJS)
 	@$(RM) -r $(OBJ_DIR)
-	@echo "$(RED)Object files removed$(DEF_COLOR)"
+	@echo "$(RED)Ficheiros objeto removidos$(DEF_COLOR)"
 
-fclean: clean # Rule to remove the executable and object files
+fclean: clean  # Regra para remover o executável e os ficheiros objeto
 	@$(RM) $(NAME)
-	@echo "$(RED)$(NAME) removed$(DEF_COLOR)"
+	@echo "$(RED)$(NAME) removido$(DEF_COLOR)"
 
-re: fclean all # Rule to recompile everything
+re: fclean all  # Regra para recompilar tudo
 
-.PHONY: all clean fclean re # Declare targets that are not files
+.PHONY: all clean fclean re  # Declarar targets que não são ficheiros
 
-# Colors for terminal output
+# Cores
 DEF_COLOR = \033[0;39m
 RED = \033[0;91m
 GREEN = \033[0;92m

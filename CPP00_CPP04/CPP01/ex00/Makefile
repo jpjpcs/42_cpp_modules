@@ -5,43 +5,43 @@
 #                                                     +:+ +:+         +:+      #
 #    By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/01 16:06:30 by joaosilva         #+#    #+#              #
-#    Updated: 2024/09/18 10:54:17 by joaosilva        ###   ########.fr        #
+#    Created: 2024/09/07 20:12:07 by joaosilva         #+#    #+#              #
+#    Updated: 2024/09/18 10:54:01 by joaosilva        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #######################  Variables ######################
-NAME = phonebook
-CC = c++
+NAME = zombies
 RM = rm -f
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -pedantic -std=c++98 # Compilation flags to enforce C++98 standard and strict error checking
-# pedantic flag is used to make sure the code is written in a standard way 
-INCLUDE = -I includes
+# pedantic flag is used to make sure the code is written in a standard way
+#INCLUDE = -I includes
 
 ############  Source files - Sources to objects ###########
-SRC_FILES = main.cpp PhoneBook.cpp Contact.cpp
-SRC_DIR = src/
-SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
+SRC_FILES = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC_DIR = .
+SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 ########### Object files ###########
 OBJ_DIR = obj/
 OBJS = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o)) # Generation of objects from sources
 
 ############ Header files ###########
-HEADER_FILES = PhoneBook.hpp Contact.hpp
-HEADER_DIR = includes/
-HEADER = $(addprefix $(HEADER_DIR), $(HEADER_FILES))
+#HEADER_FILES = PhoneBook.hpp Contact.hpp
+#HEADER_DIR = includes/
+#HEADER = $(addprefix $(HEADER_DIR), $(HEADER_FILES))
 
 #######################   Rules ######################
 all: $(NAME) # Rule to build the executable
 
-$(NAME): $(OBJS) $(HEADER) # Rule to link object files and generate the executable
-	@$(CC) $(CFLAGS) $(INCLUDE) -o $(NAME) $(OBJS)
+$(NAME): $(OBJS) # Rule to link object files and generate the executable
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(GREEN)Executable $(NAME) created$(DEF_COLOR)"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(HEADER) # Rule to compile object files from source files
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+$(OBJ_DIR)%.o: $(SRC_DIR)/%.cpp # Rule to compile object files from source files
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "$(GRAY)Object file $@ created$(DEF_COLOR)"
 
 clean: # Rule to remove object files
