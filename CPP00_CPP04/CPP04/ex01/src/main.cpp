@@ -6,27 +6,9 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:05:34 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/20 11:44:35 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/20 12:47:43 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-1 - Deep Copy vs Shallow Copy
-
-    A deep copy copies all fields, and makes copies of dynamically allocated memory 
-    pointed to by the fields. 
-
-    To make a deep copy, you must write a copy constructor and overload the assignment operator, 
-    otherwise the copy will point to the original, with disasterous consequences. 
-
-    If an object has pointers to dynamically allocated memory, 
-    and the dynamically allocated memory needs to be copied when the original object is copied, 
-    then a deep copy is required.
-    A class that requires deep copies generally needs: - A constructor to either make an 
-    initial allocation or set the pointer to NULL. - A destructor to delete the dynamically 
-    allocated memory. - A copy constructor to make a copy of the dynamically allocated 
-    memory. - An overloaded assignment operator to make a copy of the dynamically allocated memory.
-*/
 
 #include "Animal.hpp"
 #include "Dog.hpp"

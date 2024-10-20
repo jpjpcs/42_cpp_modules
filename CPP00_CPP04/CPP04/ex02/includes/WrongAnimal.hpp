@@ -6,14 +6,14 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:06:22 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/18 11:25:14 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/20 12:28:25 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGANIMAL_HPP
 #define WRONGANIMAL_HPP
 
-#include <string>
+#include <iostream>
 
 class WrongAnimal 
 {
@@ -23,12 +23,12 @@ class WrongAnimal
         WrongAnimal& operator=(const WrongAnimal &to_copy);
         virtual ~WrongAnimal(); // destrutor virtual
 
-        std::string getType() const;
         void makeSound() const;
+        std::string getType() const;
+        //void setType(std::string type);
         
     protected:
         std::string type;
 };
 
 #endif
-

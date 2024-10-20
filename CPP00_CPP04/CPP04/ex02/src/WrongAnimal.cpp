@@ -6,37 +6,57 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:05:40 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/18 11:29:00 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/20 12:49:50 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : type("WrongAnimal") {
-    std::cout << "WrongAnimal constructor called" << std::endl;
+// Construtor padrão
+WrongAnimal::WrongAnimal() : type("WrongAnimal") 
+{
+    std::cout << "WrongAnimal default constructor called." << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &other) : type(other.type) {
-    std::cout << "WrongAnimal copy constructor called" << std::endl;
+// Construtor de cópia
+// Ver mais info no ponto 1 do Animal.cpp do CPP04ex00
+WrongAnimal::WrongAnimal(const WrongAnimal& to_copy) : type(to_copy.type) 
+{
+    std::cout << "WrongAnimal copy constructor called." << std::endl;
 }
 
-WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other) {
-    if (this != &other) {
-        this->type = other.type;
+// Operador de atribuição
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& to_copy) 
+{
+    if (this != &to_copy) 
+    {
+        this->type = to_copy.type; // nao chamo getType. Atribuo diretamente.
     }
-    std::cout << "WrongAnimal assignment operator called" << std::endl;
+    std::cout << "WrongAnimal assignment operator called." << std::endl;
     return *this;
 }
 
-WrongAnimal::~WrongAnimal() {  // Destrutor virtual
-    std::cout << "WrongAnimal destructor called" << std::endl;
+// Destrutor
+WrongAnimal::~WrongAnimal() 
+{
+    std::cout << "WrongAnimal destructor called." << std::endl;
 }
 
-std::string WrongAnimal::getType() const {
+// Função makeSound (errada)
+void WrongAnimal::makeSound() const 
+{
+    std::cout << "WrongAnimal: some strange sound..." << std::endl;
+}
+
+//Getter para o tipo
+std::string WrongAnimal::getType() const 
+{
     return this->type;
-}
+} 
 
-void WrongAnimal::makeSound() const {
-    std::cout << "WrongAnimal makes an unknown sound!" << std::endl;
+/*
+void WrongAnimal::setType(std::string type) 
+{
+    this->type = type;
 }
-
+*/

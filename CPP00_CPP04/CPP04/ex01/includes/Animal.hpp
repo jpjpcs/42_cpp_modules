@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:05:58 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/19 12:29:38 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/20 12:47:51 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,24 @@ Modificações em relação ao exercício 00
     1.4. - alterei o construtor de cópia para criar uma cópia do cérebro do objeto a ser copiado, usando o getBrain para 
     obter o ponteiro para o cérebro e passando-o para o construtor de cópia do Brain, e usando o delete para 
     libertar a memória alocada para o cérebro do objeto a ser copiado.
+*/
+
+/*
+1 - Deep Copy vs Shallow Copy
+
+    A deep copy copies all fields, and makes copies of dynamically allocated memory 
+    pointed to by the fields. 
+
+    To make a deep copy, you must write a copy constructor and overload the assignment operator, 
+    otherwise the copy will point to the original, with disasterous consequences. 
+
+    If an object has pointers to dynamically allocated memory, 
+    and the dynamically allocated memory needs to be copied when the original object is copied, 
+    then a deep copy is required.
+    A class that requires deep copies generally needs: - A constructor to either make an 
+    initial allocation or set the pointer to NULL. - A destructor to delete the dynamically 
+    allocated memory. - A copy constructor to make a copy of the dynamically allocated 
+    memory. - An overloaded assignment operator to make a copy of the dynamically allocated memory.
 */
 
 #ifndef ANIMAL_HPP
