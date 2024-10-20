@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 00:41:10 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/16 02:07:58 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/16 18:05:58 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap : public ClapTrap
+class FragTrap : public ClapTrap // Mais info ponto 2 dos comments do ScavTrap.hpp do CPP03ex01.
 {
     public:
         // Construtores

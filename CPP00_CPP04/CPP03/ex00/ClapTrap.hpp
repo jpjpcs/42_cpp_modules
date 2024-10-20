@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 23:08:49 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/16 16:13:59 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/16 18:04:16 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,38 @@ ex00 -
     2 - colocar a sobrecarga do operador de inserção de fluxo de saída (<<) quer fora. 
 
 ex01 - 
-    . acesso a membros protegidos (access specifier) - passar de private a protected,
-    . herança em classes (class  ScavTrap : public ClapTrap), 
-    . diferença entre operador de atribuição e cópia direta,
-      Mais info no ponto 5 do ScavTrap.cpp do CPP03ex01,
-    . sobrecarga do operador de inserção de fluxo de saída (<<) no main com 
-    std::cout << scav1 << scav3 << std::endl; e override manual do operador << para ScavTrap.
-     Mais info no ponto 6 do ScavTrap.cpp do CPP03ex01.
-    . Operador de inserção numa classe derivada - Ver mais info no ponto 1 e ponto 2 do 
-    FragTrap.cpp do CPP03ex02 e no ponto 6 do ScavTrap.cpp do CPP03ex01.
-    . Princípio da destruição em cascata - Ver mais info no ponto 6 do main.cpp do CPP03ex01 e
-    no ponto 5 do main.cpp do CPP03ex03.
+    1 - acesso a membros protegidos (access specifier) - passar de private a protected,
+    2 - herança em classes (class  ScavTrap : public ClapTrap), 
+    3 - diferença entre operador de atribuição e cópia direta,
+        Mais info no ponto 5 do ScavTrap.cpp do CPP03ex01,
+    4 - sobrecarga do operador de inserção de fluxo de saída (<<) no main com 
+        std::cout << scav1 << scav3 << std::endl; e override manual do operador << para ScavTrap.
+        Mais info no ponto 6 do ScavTrap.cpp do CPP03ex01.
+    5 -  Função Amiga - Mais info em ScravTrap.cpp do CPP03ex01, no 
+         Módulo 02 - 19.11.27.2.1.1.2.1. Definição de sobrecarga de operadores, 
+            assim como no ClapTrap.cpp do CPP03ex00.
+    6 - Operador de inserção numa classe derivada - Ver mais info no ponto 1 e ponto 2 do 
+        FragTrap.cpp do CPP03ex02 e no ponto 6 do ScavTrap.cpp do CPP03ex01.
+    7 - Princípio da destruição em cascata - Ver mais info no ponto 6 do main.cpp do CPP03ex01 e
+        no ponto 5 do main.cpp do CPP03ex03.
     
     Pontos word abordados:
     Módulo 0 - 19.11.16.1.	This pointer
-    Módulo 3 - 19.11.42.	Access specifier (base class & class members) 
+    Módulo 3 - 19.11.42.	Access specifier (base class & class members)
+    Módulo 02 - 19.11.27.2.1.1.2.1. Definição de sobrecarga de operadores
         (ver modulo 0 e descrição dos tipos public, private and protected em módulo 0 parte da visibility)
         outros pontos:
-        3 - Os atributos private da Class ClapTrap mudaram de private para protected - Módulo 3 - 19.11.42.	Access specifier (base class & class members).
+        1 - Os atributos private da Class ClapTrap mudaram de private para protected - Módulo 3 - 19.11.42.	Access specifier (base class & class members).
+        3 - Diferença entre o Operador de Atribuição e a Cópia Direta - Módulo 2 - 19.11.31.1.6. Operador de Atribuição(=) 
+        vs Operador de Atribuição (=) Padrão vs Operador de Atribuição Sobrecarregado.
+        Mais info também no ponto 3.4.4., 3.2, 3.3. e 3.4 dos comments do Fixed.hpp do CPP02ex00.
         4 - class ScavTrap : public ClapTrap também é uma das diferenças. O public ClapTrap à frente - Módulo 3 - 19.11.38., 19.11.39, e 19.11.40.
         da class ScavTrap de forma a atribuir corretamente a herança. Se não o fizermos, o ScavTrap não terá acesso aos membros
         protegidos da classe base ClapTrap.
-        5 - Diferença entre o Operador de Atribuição e a Cópia Direta - Módulo 2 - 19.11.31.1.6. Operador de Atribuição(=) 
-        vs Operador de Atribuição (=) Padrão vs Operador de Atribuição Sobrecarregado.
-        Mais info também no ponto 3.4.4., 3.2, 3.3. e 3.4 dos comments do Fixed.hpp do CPP02ex00.
+        5 - Função Amiga - Funções amigas são declaradas dentro de uma classe, mas NÃO são métodos da classe. 
+            Uma função amiga é uma função regular que tem o privilégio de acessar membros privados nos objetos dos parâmetros.
+            Mais info em ScravTrap.cpp do CPP03ex01, no Módulo 02 - 19.11.27.2.1.1.2.1. Definição de sobrecarga de operadores, 
+            assim como no ClapTrap.cpp do CPP03ex00.
         6 - No main o operador de inserção << é chamado no std::cout << scav1 << scav3 << std::endl;
             Podia ter usado virtual functions para imprimir o tipo da classe, mas não foi possível 
             pq o override é uma função do C++11 (sendo proibido na versão C++8) e o compilador não aceitou.
@@ -59,7 +67,7 @@ ex01 -
             no Diamond.hpp do CPP03ex03,
             no - Módulo 0 - 19.11.9.1.7.	Virtual e no 
             e no - Módulo 0 - 19.11.9.1.7.1.	Virtual Function & Virtual Member Function / Função Virtual & Função membro Virtual (módulo 4).
-
+        
 ex02 - 
     Semelhante ao exercício 01, mas com a classe FragTrap. Neste exercício optei por 
     não fazer override manual do operador << para FragTrap. Logo, o operador << para FragTrap
@@ -88,6 +96,7 @@ ex03 -
         2 - funções virtuais
         3 - Uso do *this = copy vs this->name = copy.name
         4 - Uso de flag -Wshadow e -Wno-shadow no Makefile
+        5 - Função Amiga (Friend Function)
     Pontos do Word Abordados:
         Módulo 3 - 19.11.43.	multiple inheritance – conceito de herança múltipla
         Módulo 0 - 19.11.9.1.7.	Virtual e no 
@@ -298,7 +307,7 @@ class ClapTrap
         // GETTERS
         std::string getName(void) const;
         int getHitPoints(void) const;
-        int getEnergyPoints(void) const; // ver mais info no ponto 1 dos comments do ClapTrap.hpp do CPP03ex00.
+        int getEnergyPoints(void) const; // ver mais info no ponto 3 dos comments do ClapTrap.hpp do CPP03ex00.
         int getAttackDamage(void) const;
         // Setters - not used cause we are not changing the values of the attributes
 

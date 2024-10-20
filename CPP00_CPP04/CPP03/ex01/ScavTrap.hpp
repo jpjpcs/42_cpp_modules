@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:20:01 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/16 16:14:10 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/16 18:08:41 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,64 +53,74 @@
 */
 
 /* 
-2 - Pontos do Word Abordados:
-   - CPP03ex00:
-        Pontos do Word Abordados:
-        Módulo 3 - 19.11.38.	inheritance introduction
-        Módulo 3 - 19.11.39.	Instância é Herança e Polimorifsmo?
-        Módulo 3 - 19.11.40.	inheritance in classes
-        outros pontos: 
-        1 - unsigned int getEnergyPoints(void) const é funcionalmente o mesmo que 
-        unsigned int const getEnergyPoints(void)?
-        2 - colocar a sobrecarga do operador de inserção de fluxo de saída (<<) quer fora. 
-        
-   - CPP03ex01, também abordamos:
-        Módulo 0 - 19.11.16.1.	This pointer
-        Módulo 3 - 19.11.42.	Access specifier (base class & class members) 
-            (ver modulo 0 e descrição dos tipos public, private and protected em módulo 0 parte da visibility)
-            outros pontos:
-            3 - Os atributos private da Class ClapTrap mudaram de private para protected - Módulo 3 - 19.11.42.	Access specifier (base class & class members).
-            4 - class ScavTrap : public ClapTrap também é uma das diferenças. O public ClapTrap à frente - Módulo 3 - 19.11.38., 19.11.39, e 19.11.40.
-            da class ScavTrap de forma a atribuir corretamente a herança. Se não o fizermos, o ScavTrap não terá acesso aos membros
-            protegidos da classe base ClapTrap.
-            5 - Diferença entre o Operador de Atribuição e a Cópia Direta - Módulo 2 - 19.11.31.1.6. Operador de Atribuição(=) 
-            vs Operador de Atribuição (=) Padrão vs Operador de Atribuição Sobrecarregado.
-            Mais info também no ponto 3.4.4., 3.2, 3.3. e 3.4 dos comments do Fixed.hpp do CPP02ex00.
-            6 - No main o operador de inserção << é chamado no std::cout << scav1 << scav3 << std::endl;
-                Podia ter usado virtual functions para imprimir o tipo da classe, mas não foi possível 
-                pq o override é uma função do C++11 (sendo proibido na versão C++8) e o compilador não aceitou.
-                Tive que fazer um override manualmente do operador << para ScavTrap. 
-                Ver mais info:
-                no ponto 6 dos comments do ScavTrap.hpp do CPP03ex01,
-                no ClapTrap.hpp do CPP03ex00 ,
-                no Diamond.hpp do CPP03ex03,
-                no - Módulo 0 - 19.11.9.1.7.	Virtual e no 
-                e no - Módulo 0 - 19.11.9.1.7.1.	Virtual Function & Virtual Member Function / Função Virtual & Função membro Virtual (módulo 4).
-*/         
+ex01 - 
+    1 - acesso a membros protegidos (access specifier) - passar de private a protected,
+    2 - herança em classes (class  ScavTrap : public ClapTrap), 
+    3 - diferença entre operador de atribuição e cópia direta,
+        Mais info no ponto 5 do ScavTrap.cpp do CPP03ex01,
+    4 - sobrecarga do operador de inserção de fluxo de saída (<<) no main com 
+        std::cout << scav1 << scav3 << std::endl; e override manual do operador << para ScavTrap.
+        Mais info no ponto 6 do ScavTrap.cpp do CPP03ex01.
+    5 -  Função Amiga - Mais info em ScravTrap.cpp do CPP03ex01, no 
+         Módulo 02 - 19.11.27.2.1.1.2.1. Definição de sobrecarga de operadores, 
+            assim como no ClapTrap.cpp do CPP03ex00.
+    6 - Operador de inserção numa classe derivada - Ver mais info no ponto 1 e ponto 2 do 
+        FragTrap.cpp do CPP03ex02 e no ponto 6 do ScavTrap.cpp do CPP03ex01.
+    7 - Princípio da destruição em cascata - Ver mais info no ponto 6 do main.cpp do CPP03ex01 e
+        no ponto 5 do main.cpp do CPP03ex03.
+    
+    Pontos word abordados:
+    Módulo 0 - 19.11.16.1.	This pointer
+    Módulo 3 - 19.11.42.	Access specifier (base class & class members)
+    Módulo 02 - 19.11.27.2.1.1.2.1. Definição de sobrecarga de operadores
+        (ver modulo 0 e descrição dos tipos public, private and protected em módulo 0 parte da visibility)
+        outros pontos:
+        1 - Os atributos private da Class ClapTrap mudaram de private para protected - Módulo 3 - 19.11.42.	Access specifier (base class & class members).
+        3 - Diferença entre o Operador de Atribuição e a Cópia Direta - Módulo 2 - 19.11.31.1.6. Operador de Atribuição(=) 
+        vs Operador de Atribuição (=) Padrão vs Operador de Atribuição Sobrecarregado.
+        Mais info também no ponto 3.4.4., 3.2, 3.3. e 3.4 dos comments do Fixed.hpp do CPP02ex00.
+        4 - class ScavTrap : public ClapTrap também é uma das diferenças. O public ClapTrap à frente - Módulo 3 - 19.11.38., 19.11.39, e 19.11.40.
+        da class ScavTrap de forma a atribuir corretamente a herança. Se não o fizermos, o ScavTrap não terá acesso aos membros
+        protegidos da classe base ClapTrap.
+        5 - Função Amiga - Funções amigas são declaradas dentro de uma classe, mas NÃO são métodos da classe. 
+            Uma função amiga é uma função regular que tem o privilégio de acessar membros privados nos objetos dos parâmetros.
+            Mais info em ScravTrap.cpp do CPP03ex01, no Módulo 02 - 19.11.27.2.1.1.2.1. Definição de sobrecarga de operadores, 
+            assim como no ClapTrap.cpp do CPP03ex00.
+        6 - No main o operador de inserção << é chamado no std::cout << scav1 << scav3 << std::endl;
+            Podia ter usado virtual functions para imprimir o tipo da classe, mas não foi possível 
+            pq o override é uma função do C++11 (sendo proibido na versão C++8) e o compilador não aceitou.
+            Tive que fazer um override manualmente do operador << para ScavTrap. 
+            Ver mais info:
+            no ponto 6 dos comments do ScavTrap.hpp do CPP03ex01,
+            no ClapTrap.hpp do CPP03ex00 ,
+            no Diamond.hpp do CPP03ex03,
+            no - Módulo 0 - 19.11.9.1.7.	Virtual e no 
+            e no - Módulo 0 - 19.11.9.1.7.1.	Virtual Function & Virtual Member Function / Função Virtual & Função membro Virtual (módulo 4).
+*/
 
 /*
-3 - Os atributos private da Class ClapTrap mudaram de private para protected:
-    3.1. - Porquê?
+1 - Os atributos private da Class ClapTrap mudaram de private para protected:
+    1.1. - Porquê?
         . Os atributos private da classe base ClapTrap foram alterados para protected na classe derivada ScavTrap.
         . Isso permite que os atributos sejam acessados diretamente pela classe derivada, sem a necessidade de métodos de acesso.
         . A mudança de private para protected permite que os atributos sejam herdados pela classe derivada e acessados diretamente.
-    3.2. - Qual é a diferença entre private e protected?
+    1.2. - Qual é a diferença entre private e protected?
         . private: Os membros privados são acessíveis apenas pela própria classe e não pelas classes derivadas.
         . protected: Os membros protegidos são acessíveis pela própria classe e pelas classes derivadas.
         . Ao alterar os atributos de private para protected, os atributos da classe base ClapTrap podem ser 
         acessados diretamente pela classe derivada ScavTrap.
-    3.3. - Por que usar protected em vez de private?
+    1.3. - Por que usar protected em vez de private?
         . O uso de protected em vez de private permite que os atributos sejam acessados diretamente pela classe derivada.
         . Isso simplifica o acesso aos atributos e evita a necessidade de métodos de acesso.
         . A mudança de private para protected é útil quando os atributos precisam ser acessados por classes derivadas.
-    3.4. - Qual é a diferença entre protected e public?
+    1.4. - Qual é a diferença entre protected e public?
         . protected: Os membros protegidos são acessíveis pela própria classe e pelas classes derivadas.
         . public: Os membros públicos são acessíveis por qualquer classe.
         . A diferença entre protected e public é a visibilidade dos membros: protected é acessível pela classe derivada, 
         enquanto public é acessível por qualquer classe.
         . Ao usar protected, os atributos podem ser acessados diretamente pela classe derivada, mas não por outras classes.
 
-    3.5. - erro que pode acontecer no construtor no ScavTrap.cpp caso os membros sejam privados: 
+    1.5. - erro que pode acontecer no construtor no ScavTrap.cpp caso os membros sejam privados: 
     "member 'ClapTrap::_hitPoints' is inaccessible"
         3.5.1. - Porque se dá este erro: ocorre porque os membros da classe base ClapTrap 
         (como _hitPoints, _energyPoints, e _attackDamage) estão provavelmente declarados como private. 
@@ -123,7 +133,7 @@
 */
 
 /*
-4. Temos de colocar : public ClapTrap à frente da class ScavTrap de forma a atribuir
+2. Temos de colocar : public ClapTrap à frente da class ScavTrap de forma a atribuir
     corretamente a herança. Se não o fizermos, o ScavTrap não terá acesso aos membros
     protegidos da classe base ClapTrap. A herança é uma relação entre classes que permite
     que uma classe derivada (ScavTrap) herde membros e funções de uma classe base (ClapTrap).
@@ -135,6 +145,8 @@
     Se não definirmos de forma correta a herança, acontecerá no ScavTrap.cpp o erro:
         error: "ClapTrap is not a nonstatic data member or base class of class ScavTrap" 
 */
+
+// pontos 3 e 4 foram apagados.
 
 /*
 5 - Diferença entre o Operador de Atribuição e a Cópia Direta:
@@ -217,6 +229,12 @@ ao invés de ScavTrap Roberto has 85 HP, 46 energy points and 20 attack damage.
                     return os;
                 }
                 Assim, o operador << adaptará automaticamente a mensagem conforme o tipo real do objeto (ClapTrap ou ScavTrap).
+        6.3. Função Amiga (Friend Function)
+            Funções amigas são declaradas dentro de uma classe, mas NÃO são métodos da classe. 
+            Uma função amiga é uma função regular que tem o privilégio de acessar membros privados nos objetos dos parâmetros.
+
+            Mais info em ScravTrap.cpp do CPP03ex01 e no Módulo 02 - 19.11.27.2.1.1.2.1. Definição de sobrecarga de operadores, 
+            assim como no ClapTrap.cpp do CPP03ex00.
 */
 
 #ifndef SCAVTRAP_HPP
@@ -225,7 +243,7 @@ ao invés de ScavTrap Roberto has 85 HP, 46 energy points and 20 attack damage.
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class ScavTrap : public ClapTrap // ver mais info no ponto 4 dos comments do ScavTrap.cpp do CPP03ex01.
+class ScavTrap : public ClapTrap // ver mais info no ponto 2 dos comments do ScavTrap.cpp do CPP03ex01.
 {
     public:
         ScavTrap(void); // Construtor Padrão

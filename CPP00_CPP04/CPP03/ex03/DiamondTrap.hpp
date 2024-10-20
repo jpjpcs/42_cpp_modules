@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 12:01:43 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/16 16:15:06 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/16 18:06:43 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ The DiamondTrap class should have the following methods:
 #include "FragTrap.hpp"
 
 // Classe DiamondTrap, herda de ScavTrap e FragTrap
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : public ScavTrap, public FragTrap // Mais info ponto 2 dos comments do ScavTrap.hpp do CPP03ex01
 {
     public:
         // Construtor padrão

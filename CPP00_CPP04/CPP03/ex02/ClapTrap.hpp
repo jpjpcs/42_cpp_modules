@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 23:08:49 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/15 23:56:35 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/16 18:04:57 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ class ClapTrap
 
         // Setters - not used cause we are not changing the values of the attributes
 
-    protected: // IMPORTANTE: Ver mais info no ponto 3 dos comments do ScavTrap.cpp do CPP03ex01.
+    protected: // IMPORTANTE: Ver mais info no ponto 1 dos comments do ScavTrap.cpp do CPP03ex01.
         std::string _name; // Nome do ClapTrap
         int _hitPoints; // Pontos de vida (HP)
         int _energyPoints; // Pontos de energia (para realizar ações)

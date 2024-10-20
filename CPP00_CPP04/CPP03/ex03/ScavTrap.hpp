@@ -6,7 +6,7 @@
 /*   By: joaosilva <joaosilva@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:20:01 by joaosilva         #+#    #+#             */
-/*   Updated: 2024/10/16 12:32:34 by joaosilva        ###   ########.fr       */
+/*   Updated: 2024/10/16 18:06:57 by joaosilva        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,7 @@ ao invés de ScavTrap Roberto has 85 HP, 46 energy points and 20 attack damage.
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class ScavTrap : public virtual ClapTrap // ver mais info no ponto 4 dos comments do ScavTrap.cpp do CPP03ex01.
+class ScavTrap : public virtual ClapTrap // ver mais info no ponto 2 dos comments do ScavTrap.cpp do CPP03ex01.
 {
     public:
         ScavTrap(void); // Construtor Padrão
